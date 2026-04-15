@@ -40,12 +40,26 @@
         />
       </div>
 
-      <div class="status-control" data-testid="test-todo-status-control">
-        <button type="button" class="active" data-status="pending">
+      <div
+        class="status-control"
+        role="group"
+        aria-label="Status"
+        data-testid="test-todo-status-control"
+      >
+        <button
+          aria-pressed="true"
+          type="button"
+          class="active"
+          data-status="pending"
+        >
           Pending
         </button>
-        <button type="button" data-status="in-progress">In Progress</button>
-        <button type="button" data-status="done">Done</button>
+        <button aria-pressed="false" type="button" data-status="in-progress">
+          In Progress
+        </button>
+        <button aria-pressed="false" type="button" data-status="done">
+          Done
+        </button>
       </div>
 
       <h2 class="task-title" data-testid="test-todo-title">

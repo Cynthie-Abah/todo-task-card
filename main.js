@@ -144,6 +144,8 @@ saveButton.addEventListener("click", (e) => {
 statusButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     setStatus(btn.dataset.status);
+    statusButtons.forEach((b) => b.setAttribute("aria-pressed", "false"));
+    btn.setAttribute("aria-pressed", "true");
   });
 });
 
