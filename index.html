@@ -7,11 +7,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <section role="region" class="card-container" data-testid="test-todo-card">
+    <section
+      role="region"
+      id="todo-card"
+      class="card-container"
+      data-testid="test-todo-card"
+    >
       <div class="top-section">
         <!-- left  -->
         <div class="left-section">
-          <span class="priority-badge high" data-testid="test-todo-priority"
+          <span
+            class="priority-badge high"
+            data-testid="test-todo-priority-indicator"
+            data-testid="test-todo-priority"
             >High priority</span
           >
           <ul role="list" class="tags" data-testid="test-todo-tags">
@@ -32,15 +40,37 @@
         />
       </div>
 
+      <div class="status-control" data-testid="test-todo-status-control">
+        <button type="button" class="active" data-status="pending">
+          Pending
+        </button>
+        <button type="button" data-status="in-progress">In Progress</button>
+        <button type="button" data-status="done">Done</button>
+      </div>
+
       <h2 class="task-title" data-testid="test-todo-title">
         Launch Social Media Campaign
       </h2>
+      <div
+        class="description-container"
+        data-testid="test-todo-collapsible-section"
+      >
+        <p class="task-description" data-testid="test-todo-description">
+          Prepare visuals and copy for the "30 Days of Productivity" campaign
+          across Instagram, Linkedin, and X. Schedule all posts for automated
+          publishing.
+        </p>
 
-      <p class="task-description" data-testid="test-todo-description">
-        Prepare visuals and copy for the "30 Days of Productivity" campaign
-        across Instagram, Linkedin, and X. Schedule all posts for automated
-        publishing.
-      </p>
+        <button
+          class="description-toggle-btn"
+          data-testid="test-todo-expand-toggle"
+          aria-expanded="false"
+          aria-controls="todo-description"
+        >
+          Expand
+        </button>
+      </div>
+
       <ul class="time-info" role="list">
         <li>
           <time
@@ -60,6 +90,9 @@
           >
         </li>
       </ul>
+      <div class="overdue-indicator" data-testid="test-todo-overdue-indicator">
+        Overdue!
+      </div>
 
       <div id="status-indicator" class="pending" data-testid="test-todo-status">
         pending
@@ -71,6 +104,63 @@
           Delete
         </button>
       </div>
+    </section>
+
+    <!-- EDIT VIEW -->
+    <section
+      role="region"
+      id="edit-view"
+      class="card-container hide-card"
+      data-testid="test-todo-edit-form"
+    >
+      <form action="">
+        <div class="input-div">
+          <label for="title-input">Title</label>
+          <input
+            id="title-input"
+            data-testid="test-todo-edit-title-input"
+            type="text"
+          />
+        </div>
+
+        <div class="input-div">
+          <label for="description-input">Description</label>
+          <textarea
+            id="description-input"
+            data-testid="test-todo-edit-description-input"
+          ></textarea>
+        </div>
+
+        <div>
+          <label for="priority-input">Priority</label>
+          <select
+            id="priority-input"
+            data-testid="test-todo-edit-priority-select"
+          >
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="due-date-input">Due Date</label>
+          <input
+            id="due-date-input"
+            data-testid="test-todo-edit-due-date-input"
+            type="datetime-local"
+          />
+        </div>
+
+        <div class="btns">
+          <button class="save-btn" data-testid="test-todo-save-button">
+            Save
+          </button>
+          <button class="cancel-btn" data-testid="test-todo-cancel-button">
+            Cancel
+          </button>
+        </div>
+      </form>
     </section>
 
     <script src="main.js"></script>
